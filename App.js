@@ -1,4 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
+import { NavigationContainer, useNavigation } from '@react-navigation/native'
+import { createNativeStackNavigator} from '@react-navigation/native-stack'
 
 // Components
 import { AppContext } from './src/components/AppContext.js'
