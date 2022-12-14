@@ -1,23 +1,38 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Button } from 'react-native'
 import { NavigationContainer, useNavigation } from '@react-navigation/native'
 import { createNativeStackNavigator} from '@react-navigation/native-stack'
 
 // Components
 import { AppContext } from './src/components/AppContext.js'
+import Home from './src/components/Home.js'
 
 // Data files
 import deck from "./src/data/tarot-deck.js"
 
+// React Navigation
+const Stack = createNativeStackNavigator()
+
 const App = () => {
   const context = {
-
+    test: "hello"
   }
+
+  const HomeScreen = ({navigation}) => {
+    return(
+      <Home navigation={navigation} />
+    )
+  }
+  
   
   return (
     <AppContext.Provider value={context}>
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name='Home' component={HomeScreen} 
+          // options={logoutOption} 
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </AppContext.Provider>
   )
 }
