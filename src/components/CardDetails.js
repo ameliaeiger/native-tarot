@@ -61,7 +61,7 @@ const CardDetails = ({ navigation }) => {
       </View>
 
       {/* <Button title="Please. I came all this way for nothing....?"
-        onPress={e => navigation.navigate("LOL")} /> */}
+        onPress={e => navigation.navigate("LOL")} a/> */}
     </View>
   )
 }
