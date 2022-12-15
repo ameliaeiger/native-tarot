@@ -7,25 +7,26 @@ import { Button } from "react-native-paper"
 // Components
 import { AppContext } from "./AppContext"
 
-const Home = ({ navigation }) => {
+const LolView = ({ navigation }) => {
   const context = useContext(AppContext)
+
 
   return (
     <View style={styles.container}>
-      <Text>{context.test}</Text>
+      <Text>{context.selected.desc}</Text>
       <Button
         title="clickeroo!"
-        onPress={() => navigation.navigate("Browse Cards")}
+        onPress={() => navigation.navigate("Amelia's Tarot")}
         mode="outline"
         buttonColor="pink"
       >
-        Gimme a random thingy
+        Ugh. This is lame.
       </Button>
     </View>
   )
 }
 
-export default Home
+export default LolView
 
 const styles = StyleSheet.create({
   container: {

@@ -10,6 +10,7 @@ import CardDetails from "./src/components/CardDetails.js"
 
 // Data files
 import tarotData from "./src/data/tarot-deck.js"
+import LolView from "./src/components/LolView.js"
 
 // React Navigation
 const Stack = createNativeStackNavigator()
@@ -56,17 +57,24 @@ const App = () => {
     return <Card navigation={navigation} />
   }
 
-  const CardDetailsScreen = ({ navigation }) => {
+  const CardDetailsScreen = ({ navigation, route }) => {
+    console.log(route.params)
     return <CardDetails navigation={navigation} />
+  }
+
+  const LolViewScreen = ({ navigation }) => {
+    return <LolView navigation={navigation} />
   }
 
   return (
     <AppContext.Provider value={context}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Card" component={CardScreen} />
+          <Stack.Screen name="Amelia's Tarot" component={HomeScreen} />
+          <Stack.Screen name="Browse Cards" component={CardScreen} />
           <Stack.Screen name="CardDetails" component={CardDetailsScreen} />
+          <Stack.Screen name="LOL" component={LolViewScreen} />
+
         </Stack.Navigator>
       </NavigationContainer>
     </AppContext.Provider>

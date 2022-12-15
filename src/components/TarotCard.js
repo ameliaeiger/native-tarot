@@ -11,12 +11,12 @@ const window = Dimensions.get("window")
 
 const TarotCard = ({ navigation }) => {
   const context = useContext(AppContext)
-  const initCard = context.deck[context.randomNum(21)]
+  const initCard = context.deck[context.randomNum(2)]
 
   const getRandom = (e) => {
     e && e.preventDefault()
 
-    let result = context.deck[context.randomNum(21)]
+    let result = context.deck[context.randomNum(2)]
 
     context.setSelected(result)
     context.setId(result.name_short)
@@ -24,7 +24,7 @@ const TarotCard = ({ navigation }) => {
 
   const navToDetails = (e) => {
     e.preventDefault()
-    navigation.navigate("CardDetails")
+    navigation.navigate("CardDetails", { name: ["first", "second"] })
   }
 
   return (
@@ -44,7 +44,7 @@ const TarotCard = ({ navigation }) => {
           resizeMode="contain"
         />
         <Card.Actions style={styles.buttonContainer}>
-          <Button onPress={(e) => navToDetails(e)}>Select</Button>
+          <Button onPress={(e) => navToDetails(e)}>View Details</Button>
           <Button onPress={(e) => getRandom(e)}>New</Button>
         </Card.Actions>
       </Card>
