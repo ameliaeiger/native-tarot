@@ -1,27 +1,37 @@
-import { useContext } from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { useContext } from "react"
 
-import { AppContext } from './AppContext'
+// Libraries
+import { StyleSheet, Text, View } from "react-native"
+import { Button } from "react-native-paper"
 
+// Components
+import { AppContext } from "./AppContext"
 
-const Home = () => {
-    const context = useContext(AppContext)
-    return (
-        <View style={styles.container}>
-            <Text>{context.test}</Text>
-        </View>
-    )
+const Home = ({ navigation }) => {
+  const context = useContext(AppContext)
+
+  return (
+    <View style={styles.container}>
+      <Text>{context.test}</Text>
+      <Button
+        title="clickeroo!"
+        onPress={() => navigation.navigate("Card")}
+        mode="outline"
+        buttonColor="pink"
+      >
+        Gimme a random thingy
+      </Button>
+    </View>
+  )
 }
 
-export default  Home
+export default Home
 
 const styles = StyleSheet.create({
-    container: {
-      flex: .2,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderWidth:'2px',
-      borderBottomColor: 'red'
-    },
-  })
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+})
